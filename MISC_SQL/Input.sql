@@ -1,4 +1,4 @@
-USE ECOM;
+USE ECOMMERCE;
 INSERT INTO USER_TABLE (
         EMailID,
         Username,
@@ -16,6 +16,15 @@ VALUES (
         211001,
         "2011-02-22",
         "9385777743"
+    ),
+    (
+        'vs@research.ibm.com',
+        'Varul Srivastava',
+        'A-21 High Court Colony, Chauphatka',
+        'G. T. Road',
+        211001,
+        '2001-02-24',
+        '9374732112'
     );
 INSERT INTO AGENCY (EMailID, AgencyID)
 VALUES ("rapido@delivery.in", "RAPIDO007");
@@ -40,11 +49,11 @@ VALUES ("Casual_Wear");
 INSERT INTO CATEGORY (CategoryID)
 VALUES ("Sports_Wear");
 INSERT INTO CATEGORY (CategoryID)
-VALUES ("Football/Soccer");
+VALUES ("Football");
 INSERT INTO CATEGORY (CategoryID)
 VALUES ("Cricket");
 INSERT INTO CATEGORY (CategoryID)
-VALUES ("Tennis/Badminton");
+VALUES ("Badminton");
 INSERT INTO FALLS_UNDER (SubcategoryID, SuperCategoryID)
 VALUES ("Laptops", "Electronics");
 INSERT INTO FALLS_UNDER (SubcategoryID, SuperCategoryID)
@@ -58,11 +67,11 @@ VALUES ("Casual_Wear", "Clothing");
 INSERT INTO FALLS_UNDER (SubcategoryID, SuperCategoryID)
 VALUES ("Sports_Wear", "Clothing");
 INSERT INTO FALLS_UNDER (SubcategoryID, SuperCategoryID)
-VALUES ("Football/Soccer", "Sports");
+VALUES ("Football", "Sports");
 INSERT INTO FALLS_UNDER (SubcategoryID, SuperCategoryID)
 VALUES ("Cricket", "Sports");
 INSERT INTO FALLS_UNDER (SubcategoryID, SuperCategoryID)
-VALUES ("Tennis/Badminton", "Sports");
+VALUES ("Badminton", "Sports");
 INSERT INTO PRODUCTS (ProductID, Price, Brand, Product_name)
 VALUES ("PUMAF99", 1000, "PUMA", "Puma Frazer 99 Shoes");
 INSERT INTO PRODUCTS (ProductID, Price, Brand, Product_name)
@@ -87,7 +96,7 @@ VALUES (
         "Barca edition Football"
     );
 INSERT INTO PRODUCTS (ProductID, Price, Brand, Product_name)
-VALUES ("MacAir", 83000, "Apple", "Mac Book Air");
+VALUES ("MacBook", 83000, "Apple", "MacBook Air");
 INSERT INTO PRODUCTS (ProductID, Price, Brand, Product_name)
 VALUES ("S434K", 93000, "Sony", "Sony 43' 4K plasma TV");
 INSERT INTO PRODUCTS (ProductID, Price, Brand, Product_name)
@@ -101,13 +110,13 @@ VALUES (
     );
 INSERT INTO PRODUCTS (ProductID, Price, Brand, Product_name)
 VALUES (
-        "OneP_se",
+        "OnePlusSe",
         45500,
         "OnePlus",
         "OnePlus Special Edition"
     );
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
-VALUES ("PUMAF99", "Tennis/Badminton");
+VALUES ("PUMAF99", "Badminton");
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
 VALUES ("ADI2010", "Football");
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
@@ -115,7 +124,7 @@ VALUES ("Nimbus2000", "Cricket");
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
 VALUES ("Barca10", "Football");
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
-VALUES ("MacAir", "Laptops");
+VALUES ("MacBook", "Laptops");
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
 VALUES ("S434K", "Television");
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
@@ -123,7 +132,7 @@ VALUES ("M19WEX", "Party_Wear");
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
 VALUES ("BayLE9", "Sports_Wear");
 INSERT INTO BELONGS_TO (ProductID, CategoryID)
-VALUES ("OneP_se", "Phones");
+VALUES ("OnePlusSe", "Phones");
 INSERT INTO PAYMENT_MODE (Mode, Company)
 VALUES ("OnlineBanking", "Amazon Pay");
 INSERT INTO PAYMENT_MODE (Mode, Company)
@@ -134,3 +143,9 @@ INSERT INTO PAYMENT_MODE (Mode, Company)
 VALUES ("CashOnDelivery", "NoCompany");
 INSERT INTO PAYMENT_MODE (Mode, Company)
 VALUES ("OnlineBanking", "StateBankofIndia");
+INSERT INTO `CUSTOMER_DETAILS`
+VALUES (
+        'vs@research.ibm.com@2014-04-01@9374732112',
+        'vs@research.ibm.com',
+        '2014-04-01'
+    );

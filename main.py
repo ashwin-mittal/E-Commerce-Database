@@ -5,12 +5,8 @@ from datetime import datetime
 
 ActiveUser = "GUEST"
 UserMode = "N"
-MAX_VALUE = 1000000
+MaxPrice = 1000000
 
-# customer_id = str(row["E-MailID"]+"@"+doj+"@"+str(row["Phone"]))
-# trackid = bill_no + agencyid
-
-# Login username, phone_no
 # prints the tuple
 def print_result(res):
     if len(res) > 0:
@@ -71,7 +67,7 @@ def SearchProduct(con, cur):
         if pr == "Y":
             mprice = int(input("Enter price:"))
         else:
-            mprice = MAX_VALUE
+            mprice = MaxPrice
 
         if ch == 1:
             Pname = input("Enter product name:")
@@ -194,11 +190,8 @@ def show_cart(con, cur):
             "SELECT P.ProductID, P.Product_name, P.Brand, P.Price FROM PRODUCTS AS P, CART AS C WHERE P.ProductID = C.ProductID AND C.CustomerID = %s",
             (ActiveUser),
         )
-        # cur.execute(query)
         res = cur.fetchall()
         print_result(res)
-        # print("Total Price:")
-        # cur.execute("SELECT SUM(Price) FROM %s", res)
         tot = 0
         if len(res) > 0:
             for it in res:
@@ -208,7 +201,6 @@ def show_cart(con, cur):
     except Exception as e:
         con.rollback()
         print("Cart Empty")
-        # print(">>>>>>>>>>>>>", e)
 
 
 # deletes an item in cart
@@ -218,8 +210,6 @@ def deletion(con, cur):
         if UserMode != "C":
             print("Error: Only Customer type users can delete from cart")
             return
-        # cur.execute("SELECT * FROM PRODUCTS")
-        # print_result(cur.fetchall())
         show_cart(con, cur)
         productId = input("Enter Product ID to delete:")
         cur.execute(
@@ -412,6 +402,7 @@ def place_order(cur, con):
                 (it["ProductID"], bno, inPmode, inPcompany),
             )
             con.commit()
+
             # Update warranty
             cur.execute(
                 "SELECT Purchase_no from PURCHASE where ProductID = %s AND Bill_no = %s",
@@ -427,7 +418,6 @@ def place_order(cur, con):
         cur.execute("DELETE FROM CART WHERE Product_type = '1'")
         con.commit()
 
-        # bno + agencyID = trackID
         # Ashwin's Code
         cur.execute(
             "SELECT U.Username, A.AgencyID FROM AGENCY A, USER_TABLE U WHERE U.EmailID = A.EmailID"
@@ -503,6 +493,7 @@ def dispatch(ch, cur, con):
 # Global
 while True:
     tmp = sp.call("clear", shell=True)
+    print("{Welcome to E-Commerce-Database}")
 
     # Can be skipped if you want to hard core username and password
     username = input("Username:")
@@ -516,7 +507,7 @@ while True:
             user=username,
             password=password,
             port=5005,
-            db="ECOM",
+            db="ECOMMERCE",
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True,
         )
@@ -531,9 +522,9 @@ while True:
         tmp = input("Enter any key to CONTINUE")
 
         with con.cursor() as cur:
-            while 1:
+            while True:
                 tmp = sp.call("clear", shell=True)
-                # Here taking example of Employee Mini-world
+                print("-------------------------")
                 print("1. Create USER")
                 print("2. Login")
                 print("3. Search")
@@ -546,6 +537,7 @@ while True:
                 print("10. Update price of a product")
                 print("11. Place order")
                 print("12. Exit")
+                print("-------------------------")
                 ch = int(input("Enter choice:"))
                 tmp = sp.call("clear", shell=True)
 

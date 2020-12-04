@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
--- Host: localhost    Database: ECOM
+-- Host: 127.0.0.1    Database: ECOMMERCE
 -- ------------------------------------------------------
--- Server version	8.0.21-0ubuntu0.20.04.4
+-- Server version	8.0.22
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */
 ;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */
@@ -26,9 +26,9 @@
 --
 -- Table structure for table `AGENCY`
 --
-DROP DATABASE IF EXISTS `ECOM`;
-CREATE SCHEMA `ECOM`;
-USE `ECOM`;
+DROP DATABASE IF EXISTS `ECOMMERCE`;
+CREATE SCHEMA `ECOMMERCE`;
+USE `ECOMMERCE`;
 
 DROP TABLE IF EXISTS `AGENCY`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */
@@ -51,8 +51,7 @@ LOCK TABLES `AGENCY` WRITE;
 /*!40000 ALTER TABLE `AGENCY` DISABLE KEYS */
 ;
 INSERT INTO `AGENCY`
-VALUES ('aa', 'aa11'),
-  ('rapido@delivery.in', 'RAPIDO007');
+VALUES ('rapido@delivery.in', 'RAPIDO007');
 /*!40000 ALTER TABLE `AGENCY` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -81,20 +80,15 @@ LOCK TABLES `BELONGS_TO` WRITE;
 /*!40000 ALTER TABLE `BELONGS_TO` DISABLE KEYS */
 ;
 INSERT INTO `BELONGS_TO`
-VALUES ('BayLE9', 'Clothing'),
-  ('M19WEX', 'Clothing'),
-  ('asd', 'Cricket'),
+VALUES ('PUMAF99', 'Badminton'),
   ('Nimbus2000', 'Cricket'),
-  ('MacAir', 'Electronics'),
-  ('OneP_se', 'Electronics'),
-  ('S434K', 'Electronics'),
-  ('ADI2010', 'Football/Soccer'),
-  ('Barca10', 'Football/Soccer'),
-  ('ADI2010', 'Sports'),
-  ('Barca10', 'Sports'),
-  ('Nimbus2000', 'Sports'),
-  ('PUMAF99', 'Sports'),
-  ('PUMAF99', 'Tennis/Badminton');
+  ('ADI2010', 'Football'),
+  ('Barca10', 'Football'),
+  ('MacBook', 'Laptops'),
+  ('M19WEX', 'Party_Wear'),
+  ('OnePlusSe', 'Phones'),
+  ('BayLE9', 'Sports_Wear'),
+  ('S434K', 'Television');
 /*!40000 ALTER TABLE `BELONGS_TO` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -111,7 +105,7 @@ CREATE TABLE `BILL` (
   `Purchase_time` time NOT NULL,
   `Purchase_date` date NOT NULL,
   PRIMARY KEY (`Bill_number`)
-) ENGINE = InnoDB AUTO_INCREMENT = 26 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */
 ;
 --
@@ -121,31 +115,7 @@ LOCK TABLES `BILL` WRITE;
 /*!40000 ALTER TABLE `BILL` DISABLE KEYS */
 ;
 INSERT INTO `BILL`
-VALUES (1, '17:54:38', '2020-10-06'),
-  (2, '18:09:18', '2020-10-06'),
-  (3, '18:13:44', '2020-10-06'),
-  (4, '18:18:16', '2020-10-06'),
-  (5, '18:24:25', '2020-10-06'),
-  (6, '18:26:43', '2020-10-06'),
-  (7, '18:27:25', '2020-10-06'),
-  (8, '18:27:32', '2020-10-06'),
-  (9, '20:25:32', '2020-10-06'),
-  (10, '20:25:55', '2020-10-06'),
-  (11, '20:27:06', '2020-10-06'),
-  (12, '20:31:49', '2020-10-06'),
-  (13, '20:32:25', '2020-10-06'),
-  (14, '20:56:55', '2020-10-06'),
-  (15, '20:57:55', '2020-10-06'),
-  (16, '20:59:04', '2020-10-06'),
-  (17, '20:59:53', '2020-10-06'),
-  (18, '21:00:41', '2020-10-06'),
-  (19, '21:03:56', '2020-10-06'),
-  (20, '21:04:57', '2020-10-06'),
-  (21, '21:06:04', '2020-10-06'),
-  (22, '21:07:29', '2020-10-06'),
-  (23, '21:09:30', '2020-10-06'),
-  (24, '21:10:23', '2020-10-06'),
-  (25, '21:18:27', '2020-10-06');
+VALUES (1, '15:28:09', '2020-12-04');
 /*!40000 ALTER TABLE `BILL` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -198,19 +168,19 @@ LOCK TABLES `CATEGORY` WRITE;
 /*!40000 ALTER TABLE `CATEGORY` DISABLE KEYS */
 ;
 INSERT INTO `CATEGORY`
-VALUES ('Casual_Wear'),
+VALUES ('Badminton'),
+  ('Casual_Wear'),
   ('Clothing'),
   ('Cricket'),
   ('Electronics'),
-  ('Football/Soccer'),
+  ('Football'),
   ('Laptops'),
   ('Mechanical'),
   ('Party_Wear'),
   ('Phones'),
   ('Sports'),
   ('Sports_Wear'),
-  ('Television'),
-  ('Tennis/Badminton');
+  ('Television');
 /*!40000 ALTER TABLE `CATEGORY` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -239,11 +209,9 @@ LOCK TABLES `CUSTOMER_DETAILS` WRITE;
 /*!40000 ALTER TABLE `CUSTOMER_DETAILS` DISABLE KEYS */
 ;
 INSERT INTO `CUSTOMER_DETAILS`
-VALUES ('a@2019-02-02@1', 'a', '2019-02-02'),
-  ('b@2020-11-11@2', 'b', '2020-11-11'),
-  (
-    'vs@research.ibm.w@2014-04-01@9374732112',
-    'vs@research.ibm.w',
+VALUES (
+    'vs@research.ibm.com@2014-04-01@9374732112',
+    'vs@research.ibm.com',
     '2014-04-01'
   );
 /*!40000 ALTER TABLE `CUSTOMER_DETAILS` ENABLE KEYS */
@@ -274,12 +242,7 @@ LOCK TABLES `DELIVERY` WRITE;
 /*!40000 ALTER TABLE `DELIVERY` DISABLE KEYS */
 ;
 INSERT INTO `DELIVERY`
-VALUES ('19aa11', '21:03:56', 'aa11'),
-  ('21aa11', '21:06:04', 'aa11'),
-  ('22aa11', '21:07:29', 'aa11'),
-  ('23aa11', '21:09:30', 'aa11'),
-  ('24aa11', '21:10:23', 'aa11'),
-  ('25aa11', '21:18:27', 'aa11');
+VALUES ('1RAPIDO007', '15:28:09', 'RAPIDO007');
 /*!40000 ALTER TABLE `DELIVERY` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -308,15 +271,15 @@ LOCK TABLES `FALLS_UNDER` WRITE;
 /*!40000 ALTER TABLE `FALLS_UNDER` DISABLE KEYS */
 ;
 INSERT INTO `FALLS_UNDER`
-VALUES ('Clothing', 'Casual_Wear'),
+VALUES ('Sports', 'Badminton'),
+  ('Clothing', 'Casual_Wear'),
   ('Sports', 'Cricket'),
-  ('Sports', 'Football/Soccer'),
+  ('Sports', 'Football'),
   ('Electronics', 'Laptops'),
   ('Clothing', 'Party_Wear'),
   ('Electronics', 'Phones'),
   ('Clothing', 'Sports_Wear'),
-  ('Electronics', 'Television'),
-  ('Sports', 'Tennis/Badminton');
+  ('Electronics', 'Television');
 /*!40000 ALTER TABLE `FALLS_UNDER` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -335,7 +298,7 @@ CREATE TABLE `ORDERS` (
   PRIMARY KEY (`TrackID`, `Bill_number`, `CustomerID`),
   KEY `Bill_number` (`Bill_number`),
   KEY `CustomerID` (`CustomerID`),
-  CONSTRAINT `ORDERS_ibfk_1` FOREIGN KEY (`TrackID`) REFERENCES `DELIVERY` (`TrackID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `ORDERS_ibfk_1` FOREIGN KEY (`TrackID`) REFERENCES `DELIVERY` (`TrackID`),
   CONSTRAINT `ORDERS_ibfk_2` FOREIGN KEY (`Bill_number`) REFERENCES `BILL` (`Bill_number`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ORDERS_ibfk_3` FOREIGN KEY (`CustomerID`) REFERENCES `CUSTOMER_DETAILS` (`CustomerID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -348,12 +311,11 @@ LOCK TABLES `ORDERS` WRITE;
 /*!40000 ALTER TABLE `ORDERS` DISABLE KEYS */
 ;
 INSERT INTO `ORDERS`
-VALUES ('19aa11', 19, 'a@2019-02-02@1'),
-  ('21aa11', 21, 'a@2019-02-02@1'),
-  ('22aa11', 22, 'a@2019-02-02@1'),
-  ('23aa11', 23, 'a@2019-02-02@1'),
-  ('24aa11', 24, 'a@2019-02-02@1'),
-  ('25aa11', 25, 'a@2019-02-02@1');
+VALUES (
+    '1RAPIDO007',
+    1,
+    'vs@research.ibm.com@2014-04-01@9374732112'
+  );
 /*!40000 ALTER TABLE `ORDERS` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -379,9 +341,7 @@ LOCK TABLES `PAYMENT_MODE` WRITE;
 /*!40000 ALTER TABLE `PAYMENT_MODE` DISABLE KEYS */
 ;
 INSERT INTO `PAYMENT_MODE`
-VALUES ('abiboss', 'card'),
-  ('adiboss', 'cash'),
-  ('Amazon Pay', 'OnlineBanking'),
+VALUES ('Amazon Pay', 'OnlineBanking'),
   ('NoCompany', 'CashOnDelivery'),
   ('PayTM', 'OnlineBanking'),
   ('StateBankofIndia', 'Debit Card'),
@@ -419,10 +379,9 @@ VALUES (
     'Adiboss Sports Shoes',
     'Adiboss'
   ),
-  ('asd', 3333.00, 'asd', 'asd'),
   (
     'Barca10',
-    1111.00,
+    1500.00,
     'Barca edition Football',
     'Adidas'
   ),
@@ -438,7 +397,7 @@ VALUES (
     'Wedding Shervani',
     'Manyavar'
   ),
-  ('MacAir', 83000.00, 'Mac Book Air', 'Apple'),
+  ('MacBook', 83000.00, 'MacBook Air', 'Apple'),
   (
     'Nimbus2000',
     21000.00,
@@ -446,7 +405,7 @@ VALUES (
     'Borgin&Burkes'
   ),
   (
-    'OneP_se',
+    'OnePlusSe',
     45500.00,
     'OnePlus Special Edition',
     'OnePlus'
@@ -460,7 +419,7 @@ VALUES (
   (
     'S434K',
     93000.00,
-    'Sony 43 4K plasma TV',
+    'Sony 43\' 4K plasma TV',
     'Sony'
   );
 /*!40000 ALTER TABLE `PRODUCTS` ENABLE KEYS */
@@ -480,10 +439,8 @@ CREATE TABLE `PURCHASE` (
   `Mode_of_payment` varchar(15) NOT NULL,
   `Payment_company` varchar(30) NOT NULL,
   `Purchase_no` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`Purchase_no`),
-  KEY `Payment_company` (`Payment_company`, `Mode_of_payment`),
-  CONSTRAINT `PURCHASE_ibfk_1` FOREIGN KEY (`Payment_company`, `Mode_of_payment`) REFERENCES `PAYMENT_MODE` (`Company`, `Mode`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`Purchase_no`)
+) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */
 ;
 --
@@ -493,9 +450,7 @@ LOCK TABLES `PURCHASE` WRITE;
 /*!40000 ALTER TABLE `PURCHASE` DISABLE KEYS */
 ;
 INSERT INTO `PURCHASE`
-VALUES ('ADI2010', 14, 'card', 'abiboss', 4),
-  ('ADI2010', 15, 'card', 'abiboss', 5),
-  ('ADI2010', 16, 'card', 'abiboss', 6);
+VALUES ('MacBook', 1, 'OnlineBanking', 'PayTM', 1);
 /*!40000 ALTER TABLE `PURCHASE` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -523,8 +478,6 @@ CREATE TABLE `SELLS` (
 LOCK TABLES `SELLS` WRITE;
 /*!40000 ALTER TABLE `SELLS` DISABLE KEYS */
 ;
-INSERT INTO `SELLS`
-VALUES ('asd', 'z10');
 /*!40000 ALTER TABLE `SELLS` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -551,8 +504,6 @@ CREATE TABLE `SUPPLIER` (
 LOCK TABLES `SUPPLIER` WRITE;
 /*!40000 ALTER TABLE `SUPPLIER` DISABLE KEYS */
 ;
-INSERT INTO `SUPPLIER`
-VALUES ('z10', 'z');
 /*!40000 ALTER TABLE `SUPPLIER` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -571,7 +522,7 @@ CREATE TABLE `USER_TABLE` (
   `Street` varchar(225) DEFAULT NULL,
   `Pincode` int DEFAULT NULL,
   `Date_of_birth` date DEFAULT NULL,
-  `Phone_number` varchar(20) DEFAULT NULL,
+  `Phone_number` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`EmailID`),
   UNIQUE KEY `Phone_number` (`Phone_number`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -584,10 +535,7 @@ LOCK TABLES `USER_TABLE` WRITE;
 /*!40000 ALTER TABLE `USER_TABLE` DISABLE KEYS */
 ;
 INSERT INTO `USER_TABLE`
-VALUES ('a', 'a', 'a', 'a', 1, '2019-02-02', '1'),
-  ('aa', 'aa', 'aa', 'aa', 11, '2020-02-02', '11'),
-  ('b', 'b', 'b', 'b', 2, '2020-11-11', '2'),
-  (
+VALUES (
     'rapido@delivery.in',
     'Rapido Delivery',
     'C-322 Industrial Warehouse',
@@ -597,15 +545,14 @@ VALUES ('a', 'a', 'a', 'a', 1, '2019-02-02', '1'),
     '9385777743'
   ),
   (
-    'vs@research.ibm.w',
+    'vs@research.ibm.com',
     'Varul Srivastava',
     'A-21 High Court Colony, Chauphatka',
     'G. T. Road',
     211001,
     '2001-02-24',
     '9374732112'
-  ),
-  ('z', 'z', 'z', 'z', 10, '2020-10-10', '10');
+  );
 /*!40000 ALTER TABLE `USER_TABLE` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -626,7 +573,7 @@ CREATE TABLE `WARRANTY` (
   PRIMARY KEY (`Bill_num`, `ProductId`, `Purchase_num`),
   KEY `ProductId` (`ProductId`),
   KEY `Purchase_num` (`Purchase_num`),
-  CONSTRAINT `WARRANTY_ibfk_1` FOREIGN KEY (`Bill_num`) REFERENCES `BILL` (`Bill_number`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `WARRANTY_ibfk_1` FOREIGN KEY (`Bill_num`) REFERENCES `BILL` (`Bill_number`),
   CONSTRAINT `WARRANTY_ibfk_2` FOREIGN KEY (`ProductId`) REFERENCES `PRODUCTS` (`ProductID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `WARRANTY_ibfk_3` FOREIGN KEY (`Purchase_num`) REFERENCES `PURCHASE` (`Purchase_no`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -639,7 +586,7 @@ LOCK TABLES `WARRANTY` WRITE;
 /*!40000 ALTER TABLE `WARRANTY` DISABLE KEYS */
 ;
 INSERT INTO `WARRANTY`
-VALUES (16, 'ADI2010', 6, 1, 1);
+VALUES (1, 'MacBook', 1, 1, 1);
 /*!40000 ALTER TABLE `WARRANTY` ENABLE KEYS */
 ;
 UNLOCK TABLES;
@@ -659,4 +606,4 @@ UNLOCK TABLES;
 ;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */
 ;
--- Dump completed on 2020-10-06 21:33:02
+-- Dump completed on 2020-12-04 15:31:06
