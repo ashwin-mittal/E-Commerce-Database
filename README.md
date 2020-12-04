@@ -1,10 +1,10 @@
 # Real World Database Project - Data and Applications Project
 
-## E-Commerce website
+## E-Commerce Website
 
 We aimed to build a near-realistic E-Commerce database platform. Almost all functionality mentioned in the requirements doc in phase 1 has been implemented, and the CLI is in a near-perfect state.
 
-## Command Line Inrerface
+## Command Line Interface
 
 We have implemented several command-line features that include 
 
